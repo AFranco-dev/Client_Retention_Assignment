@@ -12,6 +12,132 @@ package view;
 public class Login extends javax.swing.JFrame {
 
     /**
+     * @return the JBLogin
+     */
+    public javax.swing.JButton getJBLogin() {
+        return JBLogin;
+    }
+
+    /**
+     * @param JBLogin the JBLogin to set
+     */
+    public void setJBLogin(javax.swing.JButton JBLogin) {
+        this.JBLogin = JBLogin;
+    }
+
+    /**
+     * @return the JRBVendedor
+     */
+    public javax.swing.JRadioButton getJRBVendedor() {
+        return JRBVendedor;
+    }
+
+    /**
+     * @param JRBVendedor the JRBVendedor to set
+     */
+    public void setJRBVendedor(javax.swing.JRadioButton JRBVendedor) {
+        this.JRBVendedor = JRBVendedor;
+    }
+
+    /**
+     * @return the JRDAdmin
+     */
+    public javax.swing.JRadioButton getJRDAdmin() {
+        return JRDAdmin;
+    }
+
+    /**
+     * @param JRDAdmin the JRDAdmin to set
+     */
+    public void setJRDAdmin(javax.swing.JRadioButton JRDAdmin) {
+        this.JRDAdmin = JRDAdmin;
+    }
+
+    /**
+     * @return the JTPassword
+     */
+    public javax.swing.JTextField getJTPassword() {
+        return JTPassword;
+    }
+
+    /**
+     * @param JTPassword the JTPassword to set
+     */
+    public void setJTPassword(javax.swing.JTextField JTPassword) {
+        this.JTPassword = JTPassword;
+    }
+
+    /**
+     * @return the JTUsername
+     */
+    public javax.swing.JTextField getJTUsername() {
+        return JTUsername;
+    }
+
+    /**
+     * @param JTUsername the JTUsername to set
+     */
+    public void setJTUsername(javax.swing.JTextField JTUsername) {
+        this.JTUsername = JTUsername;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
      * Creates new form Login
      */
     public Login() {

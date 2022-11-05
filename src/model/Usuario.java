@@ -15,11 +15,11 @@ public abstract class Usuario extends Datos{
     protected String username;
     protected String password;
     
-    protected boolean Login(String username, String password) {
+    public boolean Login(String username, String password) {
         return this.getUsername().equals(username) && this.getPassword().equals(password);
     }
     
-    protected void addCliente(String nombre, ArrayList<Cliente> listaClientes){
+    public void addCliente(String nombre, ArrayList<Cliente> listaClientes){
         Cliente cliente = new Cliente(nombre);
         listaClientes.add(cliente);
     }

@@ -12,6 +12,258 @@ package view;
 public class PanelVendedor extends javax.swing.JFrame {
 
     /**
+     * @return the jBClienteAgregar
+     */
+    public javax.swing.JButton getjBClienteAgregar() {
+        return jBClienteAgregar;
+    }
+
+    /**
+     * @param jBClienteAgregar the jBClienteAgregar to set
+     */
+    public void setjBClienteAgregar(javax.swing.JButton jBClienteAgregar) {
+        this.jBClienteAgregar = jBClienteAgregar;
+    }
+
+    /**
+     * @return the jBLogout
+     */
+    public javax.swing.JButton getjBLogout() {
+        return jBLogout;
+    }
+
+    /**
+     * @param jBLogout the jBLogout to set
+     */
+    public void setjBLogout(javax.swing.JButton jBLogout) {
+        this.jBLogout = jBLogout;
+    }
+
+    /**
+     * @return the jBVentaAgregarVenta
+     */
+    public javax.swing.JButton getjBVentaAgregarVenta() {
+        return jBVentaAgregarVenta;
+    }
+
+    /**
+     * @param jBVentaAgregarVenta the jBVentaAgregarVenta to set
+     */
+    public void setjBVentaAgregarVenta(javax.swing.JButton jBVentaAgregarVenta) {
+        this.jBVentaAgregarVenta = jBVentaAgregarVenta;
+    }
+
+    /**
+     * @return the jLPromedioVentasMensuales
+     */
+    public javax.swing.JLabel getjLPromedioVentasMensuales() {
+        return jLPromedioVentasMensuales;
+    }
+
+    /**
+     * @param jLPromedioVentasMensuales the jLPromedioVentasMensuales to set
+     */
+    public void setjLPromedioVentasMensuales(javax.swing.JLabel jLPromedioVentasMensuales) {
+        this.jLPromedioVentasMensuales = jLPromedioVentasMensuales;
+    }
+
+    /**
+     * @return the jLPromedioVentasTrimestrales
+     */
+    public javax.swing.JLabel getjLPromedioVentasTrimestrales() {
+        return jLPromedioVentasTrimestrales;
+    }
+
+    /**
+     * @param jLPromedioVentasTrimestrales the jLPromedioVentasTrimestrales to set
+     */
+    public void setjLPromedioVentasTrimestrales(javax.swing.JLabel jLPromedioVentasTrimestrales) {
+        this.jLPromedioVentasTrimestrales = jLPromedioVentasTrimestrales;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    /**
+     * @return the jLabel6
+     */
+    public javax.swing.JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    /**
+     * @param jLabel6 the jLabel6 to set
+     */
+    public void setjLabel6(javax.swing.JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    /**
+     * @return the jPanel1
+     */
+    public javax.swing.JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jPanel2
+     */
+    public javax.swing.JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    /**
+     * @param jPanel2 the jPanel2 to set
+     */
+    public void setjPanel2(javax.swing.JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    /**
+     * @return the jPanel3
+     */
+    public javax.swing.JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    /**
+     * @param jPanel3 the jPanel3 to set
+     */
+    public void setjPanel3(javax.swing.JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jTClienteNombre
+     */
+    public javax.swing.JTextField getjTClienteNombre() {
+        return jTClienteNombre;
+    }
+
+    /**
+     * @param jTClienteNombre the jTClienteNombre to set
+     */
+    public void setjTClienteNombre(javax.swing.JTextField jTClienteNombre) {
+        this.jTClienteNombre = jTClienteNombre;
+    }
+
+    /**
+     * @return the jTVentaIDCliente
+     */
+    public javax.swing.JTextField getjTVentaIDCliente() {
+        return jTVentaIDCliente;
+    }
+
+    /**
+     * @param jTVentaIDCliente the jTVentaIDCliente to set
+     */
+    public void setjTVentaIDCliente(javax.swing.JTextField jTVentaIDCliente) {
+        this.jTVentaIDCliente = jTVentaIDCliente;
+    }
+
+    /**
+     * @return the jTableClienteID
+     */
+    public javax.swing.JTable getjTableClienteID() {
+        return jTableClienteID;
+    }
+
+    /**
+     * @param jTableClienteID the jTableClienteID to set
+     */
+    public void setjTableClienteID(javax.swing.JTable jTableClienteID) {
+        this.jTableClienteID = jTableClienteID;
+    }
+
+    /**
      * Creates new form PanelVendedor
      */
     public PanelVendedor() {
@@ -36,7 +288,7 @@ public class PanelVendedor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTVentaIDCliente = new javax.swing.JTextField();
-        jTVentaAgregarVenta = new javax.swing.JButton();
+        jBVentaAgregarVenta = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -101,7 +353,7 @@ public class PanelVendedor extends javax.swing.JFrame {
             }
         });
 
-        jTVentaAgregarVenta.setText("Agregar Venta");
+        jBVentaAgregarVenta.setText("Agregar Venta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,7 +369,7 @@ public class PanelVendedor extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTVentaAgregarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(jBVentaAgregarVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(jTVentaIDCliente))))
                 .addContainerGap())
         );
@@ -131,7 +383,7 @@ public class PanelVendedor extends javax.swing.JFrame {
                     .addComponent(jTVentaIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(jTVentaAgregarVenta)
+                .addComponent(jBVentaAgregarVenta)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -178,13 +430,10 @@ public class PanelVendedor extends javax.swing.JFrame {
 
         jTableClienteID.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(jTableClienteID);
@@ -271,6 +520,7 @@ public class PanelVendedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBClienteAgregar;
     private javax.swing.JButton jBLogout;
+    private javax.swing.JButton jBVentaAgregarVenta;
     private javax.swing.JLabel jLPromedioVentasMensuales;
     private javax.swing.JLabel jLPromedioVentasTrimestrales;
     private javax.swing.JLabel jLabel1;
@@ -284,7 +534,6 @@ public class PanelVendedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTClienteNombre;
-    private javax.swing.JButton jTVentaAgregarVenta;
     private javax.swing.JTextField jTVentaIDCliente;
     private javax.swing.JTable jTableClienteID;
     // End of variables declaration//GEN-END:variables

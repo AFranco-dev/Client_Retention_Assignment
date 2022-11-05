@@ -19,11 +19,11 @@ public class RegistroMensualClientes {
     private YearMonth mesDeCompra;
 
     @Override public String toString(){
-        String periodo = String.format(
-                "$$$$$$$$$$$$$$$$$$$$$$\nPeriodo de la compra de los clientes: %s\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n", this.mesDeCompra);
-        String clientesDelPeriodo = "Clientes del periodo actual: \n" + Cliente.getClientesString(clientesDelMes);
-        String clientesPeriodoAnterior = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\nClientes del periodo anterior: \n" + Cliente.getClientesString(clientesDelMesPasado);
-        return periodo + clientesDelPeriodo + clientesPeriodoAnterior;
+        String periodo = String.format("$$$$$$$$$$$$$$$$$$$$$$\nPeriodo de la compra de los clientes: %s\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n", this.getMesDeCompra());
+        String clientesDelPeriodo = "Clientes del periodo actual: \n" + Cliente.getClientesString(getClientesDelMes());
+        String clientesPeriodoAnterior = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\nClientes del periodo anterior: \n" + Cliente.getClientesString(getClientesDelMesPasado());
+        String retencionDelMes = String.format("La retencion de clientes del periodo mensual ha sido del: %f%%\n", this.retencionDeClientes()*100);
+        return periodo + clientesDelPeriodo + clientesPeriodoAnterior + retencionDelMes;
     }
     
     public static void printClientesPeriodo(ArrayList<RegistroMensualClientes> list){
@@ -36,13 +36,13 @@ public class RegistroMensualClientes {
         }
     }
     
-    public double clientesNuevos() {
-        double cNuevos = 0;
-        if (clientesDelMes.isEmpty()) {
+    public int clientesNuevos() {
+        if (getClientesDelMes().isEmpty()) {
             return 0;
         }
-        for (int i = 0; i < clientesDelMes.size(); i++) {
-            Cliente get = clientesDelMes.get(i);
+        int cNuevos = 0;
+        for (int i = 0; i < getClientesDelMes().size(); i++) {
+            Cliente get = getClientesDelMes().get(i);
             if (!(clientesDelMesPasado.contains(get))) {
                 cNuevos++;
             }
@@ -51,13 +51,13 @@ public class RegistroMensualClientes {
     }
 
     public double retencionDeClientes() {
-        if (clientesDelMes.isEmpty()) {
+        if (getClientesDelMes().isEmpty()) {
             return 0;
         }
-        if (clientesDelMesPasado.isEmpty()) {
+        if (getClientesDelMesPasado().isEmpty()) {
             return 1;
         }
-        return (clientesDelMes.size()-clientesNuevos())/clientesDelMesPasado.size();
+        return (getClientesDelMes().size()-clientesNuevos())/getClientesDelMesPasado().size();
     }
 
     public RegistroMensualClientes(Venta primeraVenta) {
@@ -69,7 +69,7 @@ public class RegistroMensualClientes {
 
     public void addCliente(Cliente cliente) {
         if (!(this.clientesDelMes.contains(cliente))) {
-            this.clientesDelMes.add(cliente);
+            this.getClientesDelMes().add(cliente);
         }
     }
 

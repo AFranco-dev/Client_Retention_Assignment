@@ -5,9 +5,14 @@
  */
 package proyecto_esd115_gt3_g4;
 
+import controller.LoginController;
+import controller.PanelVendedorController;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import model.*;
+import view.Login;
+import view.PanelAdmin;
+import view.PanelVendedor;
 
 /**
  *
@@ -34,6 +39,18 @@ public class PROYECTO_ESD115_GT3_G4 {
         
         Admin admin = new Admin("admin", "admin", "admin");
         
+        PanelAdmin panelAdmin = new PanelAdmin();
+        Login login = new Login();
+        PanelVendedor panelVendedor = new PanelVendedor();
+        
+        PanelVendedorController panelVendedorController = new PanelVendedorController(listaClientes, login, panelVendedor, clientesMensuales, listaVentas);
+        panelVendedorController.initPanelVendedorController();
+        
+        LoginController loginController = new LoginController(listaVendedores, admin, panelAdmin, panelVendedor, login, panelVendedorController);
+        loginController.initLoguinGUIControlador();
+        
+        login.setVisible(true);
+        
         listaVendedores.add(new Vendedor("Tonio", "TonioMax", "abc"));
         listaVendedores.add(new Vendedor("Ponio", "PonioMax", "abc"));
         listaVendedores.add(new Vendedor("Donio", "DonioMax", "abc"));
@@ -45,19 +62,49 @@ public class PROYECTO_ESD115_GT3_G4 {
         listaClientes.add(new Cliente("Paz"));
         listaClientes.add(new Cliente("Pio"));
         
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(5));
+        
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(4));
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 1, LocalDate.now().minusMonths(4));
+        
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(3));
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 1, LocalDate.now().minusMonths(3));
+        listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 2, LocalDate.now().minusMonths(3));
+        
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(2));
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 1, LocalDate.now().minusMonths(2));
+        listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 2, LocalDate.now().minusMonths(2));
+        listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 3, LocalDate.now().minusMonths(2));
+        
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(1));
+        listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 1, LocalDate.now().minusMonths(1));
+        listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 2, LocalDate.now().minusMonths(1));
+        listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 3, LocalDate.now().minusMonths(1));
+        listaVendedores.get(2).addVenta(listaVentas, listaClientes, clientesMensuales, 4, LocalDate.now().minusMonths(1));
+        
         listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0);
         listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 1);
         listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 2);
         listaVendedores.get(1).addVenta(listaVentas, listaClientes, clientesMensuales, 3);
-        listaVendedores.get(2).addVenta(listaVentas, listaClientes, clientesMensuales, 4);
         listaVendedores.get(2).addVenta(listaVentas, listaClientes, clientesMensuales, 5);
-        listaVendedores.get(2).addVenta(listaVentas, listaClientes, clientesMensuales, 0);
         
         System.out.println("proyecto_esd115_gt3_g4.PROYECTO_ESD115_GT3_G4.main()");
-        Cliente.printClientes(listaClientes);
-        Venta.printVentas(listaVentas);
-        Vendedor.printVendedores(listaVendedores);
+//        Cliente.printClientes(listaClientes);
+//        Venta.printVentas(listaVentas);
+//        Vendedor.printVendedores(listaVendedores);
         RegistroMensualClientes.printClientesPeriodo(clientesMensuales);
+        System.out.println(admin.retencionMensualPromedio(clientesMensuales));
+        System.out.println(admin.retencionMensualUltima(clientesMensuales));
+        System.out.println("Clientes inicio periodo: ");
+        System.out.println(admin.clientesInicioPeriodo(clientesMensuales));
+        System.out.println("Clientes fin de periodo: ");
+        System.out.println(admin.clientesFinPeriodo(clientesMensuales));
+        System.out.println("Clientes nuevos del periodo: ");
+        System.out.println(admin.clientesNuevos(clientesMensuales));
+        System.out.println("Clientes retenidos del periodo: ");
+        System.out.println(admin.clientesRetenidosPeriodo(clientesMensuales));
+        
+        System.out.println(listaVendedores.get(0).promVentasMensuales());
     }
     
 }
