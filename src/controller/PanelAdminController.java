@@ -100,19 +100,24 @@ public class PanelAdminController {
         String clientesInicioMes = String.valueOf(admin.clientesInicioPeriodo(registroMensualClientes));
         panelAdmin.getjLClientesInicioMes().setText(clientesInicioMes);
         //queda por implementar
-        panelAdmin.getjLClientesInicioTrimestre();
+        String clientesInicioTrimestre = String.valueOf(admin.clientesInicioTrimestre(listaClientes));
+        panelAdmin.getjLClientesInicioTrimestre().setText(clientesInicioTrimestre);
+        
         String clientesNuevosUltimoMes = String.valueOf(admin.clientesNuevos(registroMensualClientes));
         panelAdmin.getjLClientesNuevosUltimoMes().setText(clientesNuevosUltimoMes);
         //queda por implementar
-        panelAdmin.getjLClientesNuevosUltimoTrimestre();
+        String clientesNuevosUltimoTrimestre = String.valueOf(admin.clientesNuevosTrimestre(listaClientes));
+        panelAdmin.getjLClientesNuevosUltimoTrimestre().setText(clientesNuevosUltimoTrimestre);
         String clientesRetenenidosMesActual = String.valueOf(admin.clientesRetenidosPeriodo(registroMensualClientes));
         panelAdmin.getjLClientesRetenidosMesActual().setText(clientesRetenenidosMesActual);
         //queda por implementar
-        panelAdmin.getjLClientesRetenidosTrimestreActual();
+        String clientesRetenidosTrimestreActual = String.valueOf(admin.clientesRetenidosTrimestre(listaClientes));
+        panelAdmin.getjLClientesRetenidosTrimestreActual().setText(clientesRetenidosTrimestreActual);
         String promVentasMensuales = String.valueOf(admin.ventasMensualesPromedio(listaVentas));
         panelAdmin.getjLPromedioVentasMensuales().setText(promVentasMensuales);
         //queda por implementar
-        panelAdmin.getjLPromedioVentasTrimestrales();
+        String promVentasTrimestrales = String.valueOf(admin.ventasMensualesPromedio(listaVentas)*3);
+        panelAdmin.getjLPromedioVentasTrimestrales().setText(promVentasTrimestrales);
         String retMensualProm = String.valueOf(admin.retencionMensualPromedio(registroMensualClientes));
         panelAdmin.getjLRetencionMensualPromedio().setText(retMensualProm);
         //queda por implementtar
@@ -120,7 +125,8 @@ public class PanelAdminController {
         String retMensualUltima = String.valueOf(admin.retencionMensualUltima(registroMensualClientes));
         panelAdmin.getjLRetencionUltimoMes().setText(retMensualUltima);
         //por implementar
-        panelAdmin.getjLRetencionUltimoTrimestre();
+        String retTrimestralUltima = String.valueOf(admin.retencionTrimestralUltima(listaClientes));
+        panelAdmin.getjLRetencionUltimoTrimestre().setText(retTrimestralUltima);
         
         //implementacion llenado de tablas
         

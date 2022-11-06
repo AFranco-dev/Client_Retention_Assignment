@@ -41,6 +41,53 @@ public class Admin extends Usuario {
         return 0;
     }
     
+    public double retencionTrimestralUltima(ArrayList<Cliente> list) {
+        if (list.isEmpty()) {
+            return 0;
+        }
+        if (clientesInicioTrimestre(list) == 0) {
+            return 0;
+        }
+        return (clientesFinTrimestre(list)-clientesNuevosTrimestre(list))/clientesInicioTrimestre(list);
+    }
+    
+    public double clientesInicioTrimestre(ArrayList<Cliente> list){
+        double clientes = 0;
+        for (int i = 0; i < list.size(); i++) {
+            Cliente get = list.get(i);
+            if (get.comproPenultimoTrimestre()) {
+                clientes++;
+            }
+        }
+        return clientes;
+    }
+    
+    public double clientesFinTrimestre(ArrayList<Cliente> list){
+        double clientes = 0;
+        for (int i = 0; i < list.size(); i++) {
+            Cliente get = list.get(i);
+            if (get.comproUltimoTrimestre()) {
+                clientes++;
+            }
+        }
+        return clientes;
+    }
+    
+    public double clientesNuevosTrimestre(ArrayList<Cliente> list){
+        double clientes = 0;
+        for (int i = 0; i < list.size(); i++) {
+            Cliente get = list.get(i);
+            if (!get.comproPenultimoTrimestre() && get.comproUltimoTrimestre()) {
+                clientes++;
+            }
+        }
+        return clientes;
+    }
+    
+    public double clientesRetenidosTrimestre(ArrayList<Cliente> list){
+        return clientesFinTrimestre(list)-clientesNuevosTrimestre(list);
+    }
+    
     public double retencionMensualPromedio(ArrayList<RegistroMensualClientes> list) {
         if (list.isEmpty()) {
             return 0;

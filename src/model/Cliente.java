@@ -82,6 +82,18 @@ public class Cliente extends Datos {
         }
         return false;
     }
+    
+    public boolean comproPenultimoTrimestre() {
+        YearMonth fechaActual = YearMonth.now();
+        for (int i = 0; i < listaCompras.size(); i++) {
+            Venta get = listaCompras.get(i);
+            YearMonth fechaCompra = YearMonth.from(get.getFecha());
+            if (fechaActual.minusMonths(3).equals(fechaCompra) || fechaActual.minusMonths(4).equals(fechaCompra) || fechaActual.minusMonths(5).equals(fechaCompra)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * @return the idCliente
