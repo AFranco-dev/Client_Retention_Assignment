@@ -61,6 +61,7 @@ public class PanelVendedorController {
         else{
             loggedInVendedor.addCliente(nombreCliente, listaClientes);
             cargarPanel();
+            panelVendedor.getjTClienteNombre().setText("");
         }
     }
     
@@ -71,6 +72,9 @@ public class PanelVendedorController {
             if (Validators.isIntInclusiveBetween(0, listaClientes.size()-1, iD)) {
                 loggedInVendedor.addVenta(listaVentas, listaClientes, registroMensualClientes, iD);
                 cargarPanel();
+                panelVendedor.getjTVentaIDCliente().setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor introduzca un ID de cliente valido.");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Por favor introduzca un ID de cliente valido.");

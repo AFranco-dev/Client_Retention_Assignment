@@ -15,10 +15,11 @@ import java.util.ArrayList;
  * @author jafra
  */
 public class Admin extends Usuario {
-
+    //Son las caracteristicas propias del administrador
     private int idAdministrador;
     private static int cantAdministradores = 0;
-
+    //Este es el constructor del administrador, toma de referencia el nombre
+    //usuario y contraseña
     public Admin(String nombre, String username, String password) {
         this.idAdministrador = cantAdministradores;
         this.cantAdministradores++;
@@ -26,7 +27,8 @@ public class Admin extends Usuario {
         this.username = username;
         this.password = password;
     }
-
+    //Este es un metodo del admin, toma como parametro un ArrayList de la clase RegistroMensualCliente
+    //
     public double retencionMensualUltima(ArrayList<RegistroMensualClientes> listaClientesPorMes) {
         if (listaClientesPorMes.isEmpty()) {
             return 0;

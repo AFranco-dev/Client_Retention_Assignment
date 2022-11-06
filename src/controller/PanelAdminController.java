@@ -75,6 +75,7 @@ public class PanelAdminController {
         else{
             admin.addCliente(nombreCliente, listaClientes);
             cargarPanel();
+            panelAdmin.getjTClienteNombre().setText("");
         }
     }
     
@@ -88,6 +89,9 @@ public class PanelAdminController {
         else{
             admin.addVendedor(listaVendedores, nombreVendedor, usuarioVendedor, passwordVendedor);
             cargarPanel();
+            panelAdmin.getjTVendedorNombre().setText("");
+            panelAdmin.getjTVendedorUsuario().setText("");
+            panelAdmin.getjTVendedorPassword().setText("");
         }
     }
     
@@ -118,14 +122,14 @@ public class PanelAdminController {
         //queda por implementar
         String promVentasTrimestrales = String.valueOf(admin.ventasMensualesPromedio(listaVentas)*3);
         panelAdmin.getjLPromedioVentasTrimestrales().setText(promVentasTrimestrales);
-        String retMensualProm = String.valueOf(admin.retencionMensualPromedio(registroMensualClientes));
+        String retMensualProm = String.valueOf(admin.retencionMensualPromedio(registroMensualClientes)*100)+"%%";
         panelAdmin.getjLRetencionMensualPromedio().setText(retMensualProm);
         //queda por implementtar
         panelAdmin.getjLRetencionTrimestralPromedio();
-        String retMensualUltima = String.valueOf(admin.retencionMensualUltima(registroMensualClientes));
+        String retMensualUltima = String.valueOf(admin.retencionMensualUltima(registroMensualClientes)*100)+"%%";
         panelAdmin.getjLRetencionUltimoMes().setText(retMensualUltima);
         //por implementar
-        String retTrimestralUltima = String.valueOf(admin.retencionTrimestralUltima(listaClientes));
+        String retTrimestralUltima = String.valueOf(admin.retencionTrimestralUltima(listaClientes)*100)+"%%";
         panelAdmin.getjLRetencionUltimoTrimestre().setText(retTrimestralUltima);
         
         //implementacion llenado de tablas

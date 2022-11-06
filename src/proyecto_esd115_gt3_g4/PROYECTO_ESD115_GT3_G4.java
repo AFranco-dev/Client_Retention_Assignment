@@ -33,17 +33,19 @@ public class PROYECTO_ESD115_GT3_G4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //Se crean las "bases de datos" 
         ArrayList<Vendedor> listaVendedores = new ArrayList<>();
         ArrayList<Venta> listaVentas = new ArrayList<>();
         ArrayList<Cliente> listaClientes = new ArrayList<>();
         ArrayList<RegistroMensualClientes> clientesMensuales = new ArrayList<>(); 
-        
+        //Se crea el administrador
         Admin admin = new Admin("admin", "admin", "admin");
-        
+        //Se crean las interfaces de usuario
         PanelAdmin panelAdmin = new PanelAdmin();
         Login login = new Login();
         PanelVendedor panelVendedor = new PanelVendedor();
-        
+        //Se crean los controladores de las interfaces de usuario y se inicializan
         PanelAdminController panelAdminController = new PanelAdminController(listaVendedores, listaVentas, listaClientes, clientesMensuales, admin, login, panelAdmin);
         panelAdminController.initPanelAdminController();
         
@@ -52,13 +54,13 @@ public class PROYECTO_ESD115_GT3_G4 {
         
         LoginController loginController = new LoginController(listaVendedores, admin, panelAdmin, panelVendedor, login, panelVendedorController, panelAdminController);
         loginController.initLoguinGUIControlador();
-        
+        //se hace visible la interfaz del login
         login.setVisible(true);
-        
+        //se agregan vendedores base 
         listaVendedores.add(new Vendedor("Tonio", "TonioMax", "abc"));
         listaVendedores.add(new Vendedor("Ponio", "PonioMax", "abc"));
         listaVendedores.add(new Vendedor("Donio", "DonioMax", "abc"));
-        
+        //se crean clientes base
         listaClientes.add(new Cliente("Pedro"));
         listaClientes.add(new Cliente("Paco"));
         listaClientes.add(new Cliente("Pablo"));
@@ -66,6 +68,7 @@ public class PROYECTO_ESD115_GT3_G4 {
         listaClientes.add(new Cliente("Paz"));
         listaClientes.add(new Cliente("Pio"));
         
+        //Se agregan ventas base en diferentes periodos de tiempo
         listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(5));
         
         listaVendedores.get(0).addVenta(listaVentas, listaClientes, clientesMensuales, 0, LocalDate.now().minusMonths(4));
@@ -96,6 +99,7 @@ public class PROYECTO_ESD115_GT3_G4 {
 //        Cliente.printClientes(listaClientes);
 //        Venta.printVentas(listaVentas);
 //        Vendedor.printVendedores(listaVendedores);
+        //Se agregan prints a consola para poder realizar un debug correcto
         RegistroMensualClientes.printClientesPeriodo(clientesMensuales);
         System.out.println(admin.retencionMensualPromedio(clientesMensuales));
         System.out.println(admin.retencionMensualUltima(clientesMensuales));

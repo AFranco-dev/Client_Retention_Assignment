@@ -8,6 +8,9 @@ package validators;
 /**
  *
  * @author jafra
+ * 
+ * Estas son clases para poder validar la entrada de los datos en 
+ * la interfaz
  */
 public class Validators {
     public static boolean isNullEmptyOrBlank(String s){

@@ -76,6 +76,8 @@ public class LoginController {
                 panelAdmin.setVisible(true);
                 panelAdminController.cargarPanel();
             }
+            login.getJTPassword().setText("");
+            login.getJTUsername().setText("");
         }
         else{
             JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
