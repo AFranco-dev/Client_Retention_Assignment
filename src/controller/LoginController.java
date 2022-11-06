@@ -22,14 +22,20 @@ public class LoginController {
     PanelVendedor panelVendedor;
     Login login;
     PanelVendedorController panelVendedorController;
+    PanelAdminController panelAdminController;
 
-    public LoginController(ArrayList<Vendedor> vendedores, Admin admin, PanelAdmin panelAdmin, PanelVendedor panelVendedor, Login login, PanelVendedorController panelVendedorController) {
+    public LoginController(
+            ArrayList<Vendedor> vendedores, Admin admin, 
+            PanelAdmin panelAdmin, PanelVendedor panelVendedor, 
+            Login login, PanelVendedorController panelVendedorController,
+            PanelAdminController panelAdminController) {
         this.vendedores = vendedores;
         this.admin = admin;
         this.panelAdmin = panelAdmin;
         this.panelVendedor = panelVendedor;
         this.login = login;
         this.panelVendedorController = panelVendedorController;
+        this.panelAdminController = panelAdminController;
     }
 
     public void initLoguinGUIControlador(){
@@ -68,6 +74,7 @@ public class LoginController {
             }
             else if(login.getJRDAdmin().isSelected()) {
                 panelAdmin.setVisible(true);
+                panelAdminController.cargarPanel();
             }
         }
         else{

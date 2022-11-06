@@ -60,6 +60,7 @@ public class PanelVendedorController {
         }
         else{
             loggedInVendedor.addCliente(nombreCliente, listaClientes);
+            cargarPanel();
         }
     }
     
@@ -69,6 +70,7 @@ public class PanelVendedorController {
             int iD = Integer.valueOf(iDString);
             if (Validators.isIntInclusiveBetween(0, listaClientes.size()-1, iD)) {
                 loggedInVendedor.addVenta(listaVentas, listaClientes, registroMensualClientes, iD);
+                cargarPanel();
             }
         } else {
             JOptionPane.showMessageDialog(null, "Por favor introduzca un ID de cliente valido.");

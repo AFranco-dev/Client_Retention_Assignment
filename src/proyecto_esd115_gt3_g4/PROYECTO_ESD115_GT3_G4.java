@@ -6,6 +6,7 @@
 package proyecto_esd115_gt3_g4;
 
 import controller.LoginController;
+import controller.PanelAdminController;
 import controller.PanelVendedorController;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -43,10 +44,13 @@ public class PROYECTO_ESD115_GT3_G4 {
         Login login = new Login();
         PanelVendedor panelVendedor = new PanelVendedor();
         
+        PanelAdminController panelAdminController = new PanelAdminController(listaVendedores, listaVentas, listaClientes, clientesMensuales, admin, login, panelAdmin);
+        panelAdminController.initPanelAdminController();
+        
         PanelVendedorController panelVendedorController = new PanelVendedorController(listaClientes, login, panelVendedor, clientesMensuales, listaVentas);
         panelVendedorController.initPanelVendedorController();
         
-        LoginController loginController = new LoginController(listaVendedores, admin, panelAdmin, panelVendedor, login, panelVendedorController);
+        LoginController loginController = new LoginController(listaVendedores, admin, panelAdmin, panelVendedor, login, panelVendedorController, panelAdminController);
         loginController.initLoguinGUIControlador();
         
         login.setVisible(true);

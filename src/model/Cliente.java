@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
 
 /**
@@ -12,22 +13,22 @@ import java.util.ArrayList;
  * @author jafra
  */
 public class Cliente extends Datos {
-
+    
     private int idCliente;
     private static int cantClientes = 0;
     private ArrayList<Venta> listaCompras;
-
+    
     public Cliente(String nombre) {
         this.nombre = nombre;
         this.idCliente = cantClientes;
         cantClientes++;
         this.listaCompras = new ArrayList<>();
     }
-
+    
     public void addVenta(Venta nVenta) {
         this.getListaCompras().add(nVenta);
     }
-
+    
     @Override
     public String toString() {
         String datosCliente = String.format("########################\nID cliente: %d\nNombre: %s\n",
@@ -35,7 +36,7 @@ public class Cliente extends Datos {
         String comprasCliente = Venta.getVentasString(this.listaCompras);
         return datosCliente + comprasCliente;
     }
-
+    
     public static void printClientes(ArrayList<Cliente> list) {
         if (list.isEmpty()) {
             System.out.println("No hay clientes.");
@@ -45,7 +46,7 @@ public class Cliente extends Datos {
             System.out.println(get.toString());
         }
     }
-
+    
     public static String getClientesString(ArrayList<Cliente> list) {
         if (list.isEmpty()) {
             return "No hay clientes.";
@@ -56,6 +57,30 @@ public class Cliente extends Datos {
             clientes += get.toString() + "\n";
         }
         return clientes;
+    }
+    
+    public boolean comproUltimoMes() {
+        YearMonth fechaActual = YearMonth.now();
+        for (int i = 0; i < listaCompras.size(); i++) {
+            Venta get = listaCompras.get(i);
+            YearMonth fechaCompra = YearMonth.from(get.getFecha());
+            if (fechaActual.equals(fechaCompra)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean comproUltimoTrimestre() {
+        YearMonth fechaActual = YearMonth.now();
+        for (int i = 0; i < listaCompras.size(); i++) {
+            Venta get = listaCompras.get(i);
+            YearMonth fechaCompra = YearMonth.from(get.getFecha());
+            if (fechaActual.equals(fechaCompra) || fechaActual.minusMonths(1).equals(fechaCompra) || fechaActual.minusMonths(2).equals(fechaCompra)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

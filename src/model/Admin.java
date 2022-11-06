@@ -7,6 +7,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 /**
@@ -109,5 +110,21 @@ public class Admin extends Usuario {
             }
         }
         return 0;
+    }
+    
+    public double ventasMensualesPromedio (ArrayList<Venta> list) {
+        if (list.isEmpty()) {
+            return 0;
+        }
+        YearMonth primerVenta = YearMonth.from(list.get(0).getFecha());
+        YearMonth ultimaVenta = YearMonth.from(list.get(list.size() - 1).getFecha());
+        double cantMeses = Double.valueOf(ChronoUnit.MONTHS.between(primerVenta, ultimaVenta) + 1);
+        double cantVentas = list.size();
+        return cantVentas / cantMeses;
+    }
+    
+    public void addVendedor (ArrayList<Vendedor> list, String nombre, String usuario, String contra){
+        Vendedor v = new Vendedor(nombre, usuario, contra);
+        list.add(v);
     }
 }
