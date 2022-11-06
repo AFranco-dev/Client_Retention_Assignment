@@ -31,7 +31,7 @@ public class Admin extends Usuario {
         if (listaClientesPorMes.isEmpty()) {
             return 0;
         }
-        YearMonth lastMonth = YearMonth.now().minusMonths(1);
+        YearMonth lastMonth = YearMonth.now();
         for (int i = 0; i < listaClientesPorMes.size(); i++) {
             RegistroMensualClientes get = listaClientesPorMes.get(i);
             if (get.getMesDeCompra().equals(lastMonth)) {

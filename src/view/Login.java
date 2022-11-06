@@ -153,6 +153,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jBGTipoLogin = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         JRBVendedor = new javax.swing.JRadioButton();
         JRDAdmin = new javax.swing.JRadioButton();
@@ -165,6 +166,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jBGTipoLogin.add(JRBVendedor);
         JRBVendedor.setText("Vendedor");
         JRBVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +174,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jBGTipoLogin.add(JRDAdmin);
         JRDAdmin.setText("Administrador");
 
         JBLogin.setText("Ingresar");
@@ -289,6 +292,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JRadioButton JRDAdmin;
     private javax.swing.JTextField JTPassword;
     private javax.swing.JTextField JTUsername;
+    private javax.swing.ButtonGroup jBGTipoLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

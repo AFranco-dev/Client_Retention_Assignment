@@ -33,6 +33,8 @@ public class RegistroMensualClientes {
         for (int i = 0; i < list.size(); i++) {
             RegistroMensualClientes get = list.get(i);
             System.out.println(get.toString());
+            get.retencionDeClientes();
+            System.out.println(get.clientesDelMes.size()-get.clientesNuevos());
         }
     }
     
@@ -57,7 +59,10 @@ public class RegistroMensualClientes {
         if (getClientesDelMesPasado().isEmpty()) {
             return 1;
         }
-        return (getClientesDelMes().size()-clientesNuevos())/getClientesDelMesPasado().size();
+        double clientesFinPeriodo = Double.valueOf(getClientesDelMes().size());
+        double clientesNuevosDelPeriodo = Double.valueOf(clientesNuevos());
+        double clientesAlComienzo = Double.valueOf(getClientesDelMesPasado().size());
+        return (clientesFinPeriodo-clientesNuevosDelPeriodo)/clientesAlComienzo;
     }
 
     public RegistroMensualClientes(Venta primeraVenta) {
