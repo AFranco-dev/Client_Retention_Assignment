@@ -12,13 +12,15 @@ import java.util.ArrayList;
  * @author jafra
  */
 public abstract class Usuario extends Datos{
+//    Atributos de los vendedores y admin
+    
     protected String username;
     protected String password;
-    
+    //metodo para acceder a las interfaces de usuario en el que se checa si las credenciales coinciden
     public boolean Login(String username, String password) {
         return this.getUsername().equals(username) && this.getPassword().equals(password);
     }
-    
+    //metodo para agregar cliente al ArrayList
     public void addCliente(String nombre, ArrayList<Cliente> listaClientes){
         Cliente cliente = new Cliente(nombre);
         listaClientes.add(cliente);

@@ -21,7 +21,7 @@ public class Venta {
     protected Cliente comprador;
     protected Vendedor vendedor;
     protected LocalDate fecha;
-
+    //constructor que utiliza la fecha actual
     public Venta(Cliente comprador, Vendedor vendedor) {
         this.idVenta = cantVentas;
         cantVentas++;
@@ -29,7 +29,7 @@ public class Venta {
         this.vendedor = vendedor;
         this.fecha = LocalDate.now();
     }
-    
+    //constructor que utiliza una fecha dada
     public Venta(Cliente comprador, Vendedor vendedor, LocalDate date) {
         this.idVenta = cantVentas;
         cantVentas++;
@@ -37,7 +37,7 @@ public class Venta {
         this.vendedor = vendedor;
         this.fecha = date;
     }
-
+    //metodo para convertir a String la instancciua de venta
     @Override
     public String toString() {
         return String.format(
@@ -45,14 +45,14 @@ public class Venta {
                 + "ID Venta: %d\nVendedor: %s\nComprador: %s\nFecha: %s",
                 this.idVenta, this.vendedor.getNombre(), this.comprador.getNombre(), this.fecha.toString());
     }
-
+    //Imprimir lasd ventasd de la listas de ventas
     public static void printVentas(ArrayList<Venta> list) {
         for (Iterator iterator = list.iterator(); iterator.hasNext();) {
             Object next = iterator.next();
             System.out.println(next.toString());
         }
     }
-
+    //Regresa el String de la lsita de ventas
     public static String getVentasString(ArrayList<Venta> list) {
         if (list.isEmpty()) {
             return "No hay ventas/compras";

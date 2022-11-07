@@ -16,7 +16,6 @@ import model.Venta;
 import validators.Validators;
 import view.Login;
 import view.PanelAdmin;
-import view.PanelVendedor;
 
 /**
  *
@@ -44,6 +43,7 @@ public class PanelAdminController {
         this.admin = admin;
         this.login = login;
         this.panelAdmin = panelAdmin;
+        //se creanlos modelos de las tablas y se sincronizan con las de la GUI
         tablaClientes = new DefaultTableModel();
         tablaClientes.addColumn("ID");
         tablaClientes.addColumn("Nombre");
@@ -62,31 +62,37 @@ public class PanelAdminController {
     }
     
     public void initPanelAdminController(){
+        //se agregan los listener para los botones de la ptanlla
         panelAdmin.getjBLogout().addActionListener(e -> regresarLogin());
         panelAdmin.getjBClienteAgregar().addActionListener(e -> agregarCliente());
         panelAdmin.getjBVendedorAgregar().addActionListener(e -> agregarVendedor());
     }
-    
+    //metodo apra agregar cliente desde los datos de la GUI
     public void agregarCliente(){
         String nombreCliente =  panelAdmin.getjTClienteNombre().getText().trim();
+        //se verifica que el nombre no esté vacío
         if (Validators.isNullEmptyOrBlank(nombreCliente)) {
+            //si está vacía se manda alerta
             JOptionPane.showMessageDialog(null, "Por favor no dejes casillas sin llenar.");
         }
         else{
+            //si no está vacío se agrega el cliente con los metodos del admin
             admin.addCliente(nombreCliente, listaClientes);
             cargarPanel();
             panelAdmin.getjTClienteNombre().setText("");
         }
     }
-    
+    //metood para agregar vendedor al ArrayList de vendedores desde la GUI
     public void agregarVendedor(){
         String nombreVendedor =  panelAdmin.getjTVendedorNombre().getText().trim();
         String usuarioVendedor =  panelAdmin.getjTVendedorUsuario().getText().trim();
         String passwordVendedor =  panelAdmin.getjTVendedorPassword().getText().trim();
+        //se verifica que ninfuno de los campos esté vacío
         if (Validators.isNullEmptyOrBlank(nombreVendedor) || Validators.isNullEmptyOrBlank(usuarioVendedor) || Validators.isNullEmptyOrBlank(passwordVendedor)) {
             JOptionPane.showMessageDialog(null, "Por favor no dejes casillas sin llenar.");
         }
         else{
+            //si ninguno de los campos está vacío se agrega el vendedor al ArrayList y se vacían los campos
             admin.addVendedor(listaVendedores, nombreVendedor, usuarioVendedor, passwordVendedor);
             cargarPanel();
             panelAdmin.getjTVendedorNombre().setText("");
@@ -96,44 +102,50 @@ public class PanelAdminController {
     }
     
     public void regresarLogin(){
+        //metodo apra regresar a la pantalla del login
         panelAdmin.dispose();
         login.setVisible(true);
     }
-    
+    //metodo para cargar todos los campos de datos del panel del admin
     public void cargarPanel(){
+        //se cargan los clientes al inicio del mes
         String clientesInicioMes = String.valueOf(admin.clientesInicioPeriodo(registroMensualClientes));
         panelAdmin.getjLClientesInicioMes().setText(clientesInicioMes);
-        //queda por implementar
+        //clientes inicio trimestrs
         String clientesInicioTrimestre = String.valueOf(admin.clientesInicioTrimestre(listaClientes));
         panelAdmin.getjLClientesInicioTrimestre().setText(clientesInicioTrimestre);
-        
+        //clientes nuevos ultimo mes
         String clientesNuevosUltimoMes = String.valueOf(admin.clientesNuevos(registroMensualClientes));
         panelAdmin.getjLClientesNuevosUltimoMes().setText(clientesNuevosUltimoMes);
-        //queda por implementar
+        //clientes nuevos ultimo trimestres
         String clientesNuevosUltimoTrimestre = String.valueOf(admin.clientesNuevosTrimestre(listaClientes));
         panelAdmin.getjLClientesNuevosUltimoTrimestre().setText(clientesNuevosUltimoTrimestre);
+        //Clientes retenidos en el mes actual
         String clientesRetenenidosMesActual = String.valueOf(admin.clientesRetenidosPeriodo(registroMensualClientes));
         panelAdmin.getjLClientesRetenidosMesActual().setText(clientesRetenenidosMesActual);
-        //queda por implementar
+        //clientes retenidos en el trimestre
         String clientesRetenidosTrimestreActual = String.valueOf(admin.clientesRetenidosTrimestre(listaClientes));
         panelAdmin.getjLClientesRetenidosTrimestreActual().setText(clientesRetenidosTrimestreActual);
+        //promedio de ventas mensuales
         String promVentasMensuales = String.valueOf(admin.ventasMensualesPromedio(listaVentas));
         panelAdmin.getjLPromedioVentasMensuales().setText(promVentasMensuales);
-        //queda por implementar
+        //promedio de ventas trimestrales
         String promVentasTrimestrales = String.valueOf(admin.ventasMensualesPromedio(listaVentas)*3);
         panelAdmin.getjLPromedioVentasTrimestrales().setText(promVentasTrimestrales);
+        //retencion mensual promedio
         String retMensualProm = String.valueOf(admin.retencionMensualPromedio(registroMensualClientes)*100)+"%%";
         panelAdmin.getjLRetencionMensualPromedio().setText(retMensualProm);
         //queda por implementtar
         panelAdmin.getjLRetencionTrimestralPromedio();
+        //retencion mensual del mes actual
         String retMensualUltima = String.valueOf(admin.retencionMensualUltima(registroMensualClientes)*100)+"%%";
         panelAdmin.getjLRetencionUltimoMes().setText(retMensualUltima);
-        //por implementar
+        //retencion mensual del trimestre actual
         String retTrimestralUltima = String.valueOf(admin.retencionTrimestralUltima(listaClientes)*100)+"%%";
         panelAdmin.getjLRetencionUltimoTrimestre().setText(retTrimestralUltima);
         
         //implementacion llenado de tablas
-        
+        //se llenan las tablas con los valores de los ArrayList
         tablaClientes.setRowCount(0);
         if (!listaClientes.isEmpty()) {
             String[] clientes = new String[4];

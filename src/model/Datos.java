@@ -9,6 +9,7 @@ package model;
  *
  * @author jafra
  */
+//  clase abstracta base para todos los usuarios y clientes
 public abstract class Datos {
     protected String nombre;
 
